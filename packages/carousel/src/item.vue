@@ -2,13 +2,13 @@
   <div
     v-show="ready"
     class="el-carousel__item"
-    :class="{
+    :class="[{
       'is-active': active,
       'el-carousel__item--card': $parent.type === 'card',
       'is-in-stage': inStage,
       'is-hover': hover,
       'is-animating': animating
-    }"
+    }, customClass]"
     @click="handleItemClick"
     :style="itemStyle">
     <div
@@ -27,6 +27,10 @@
     name: 'ElCarouselItem',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       name: String,
       label: {
         type: [String, Number],

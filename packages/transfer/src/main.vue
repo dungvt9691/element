@@ -1,5 +1,5 @@
 <template>
-  <div class="el-transfer">
+  <div class="el-transfer" :class="customClass">
     <transfer-panel
       v-bind="$props"
       ref="leftPanel"
@@ -59,6 +59,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       data: {
         type: Array,
         default() {

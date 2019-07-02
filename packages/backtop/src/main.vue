@@ -7,7 +7,8 @@
         'right': styleRight,
         'bottom': styleBottom
       }"
-      class="el-backtop">
+      class="el-backtop"
+      :Class="customClass">
       <slot>
         <el-icon name="caret-top"></el-icon>
       </slot>
@@ -22,6 +23,10 @@ export default {
   name: 'ElBacktop',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     visibilityHeight: {
       type: Number,
       default: 200

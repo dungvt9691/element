@@ -1,5 +1,5 @@
 <template>
-  <header class="el-header" :style="{ height }">
+  <header class="el-header" :class="customClass" :style="{ height }">
     <slot></slot>
   </header>
 </template>
@@ -11,6 +11,10 @@
     componentName: 'ElHeader',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       height: {
         type: String,
         default: '60px'

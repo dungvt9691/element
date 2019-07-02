@@ -2,7 +2,8 @@
   <div
     :class="[
       'el-cascader-panel',
-      border && 'is-bordered'
+      border && 'is-bordered',
+      customClass
     ]"
     @keydown="handleKeyDown">
     <cascader-menu
@@ -87,6 +88,10 @@ export default {
   },
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     value: {},
     options: Array,
     props: Object,

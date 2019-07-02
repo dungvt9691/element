@@ -6,6 +6,7 @@
         { 'is-disabled': isDisabled },
         { 'is-checked': isChecked },
         { 'is-focus': focus },
+        customClass
       ]"
     role="checkbox"
     :aria-checked="isChecked"
@@ -69,6 +70,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {},
       label: {},
       disabled: Boolean,

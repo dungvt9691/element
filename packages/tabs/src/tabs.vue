@@ -9,6 +9,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       type: String,
       activeName: String,
       closable: Boolean,
@@ -58,7 +62,7 @@
       calcPaneInstances(isForceUpdate = false) {
         if (this.$slots.default) {
           const paneSlots = this.$slots.default.filter(vnode => vnode.tag &&
-            vnode.componentOptions && vnode.componentOptions.Ctor.options.name === 'ElTabPane');
+            vnode.componentOptions && vnode.componentOptions.Ctor.options.name.includes('TabPane'));
           // update indeed
           const panes = paneSlots.map(({ componentInstance }) => componentInstance);
           const panesChanged = !(panes.length === this.panes.length && panes.every((pane, index) => pane === this.panes[index]));
@@ -120,7 +124,8 @@
         editable,
         addable,
         tabPosition,
-        stretch
+        stretch,
+        customClass
       } = this;
 
       const newButton = editable || addable
@@ -161,12 +166,15 @@
       );
 
       return (
-        <div class={{
-          'el-tabs': true,
-          'el-tabs--card': type === 'card',
-          [`el-tabs--${tabPosition}`]: true,
-          'el-tabs--border-card': type === 'border-card'
-        }}>
+        <div class={[
+          {
+            'el-tabs': true,
+            'el-tabs--card': type === 'card',
+            [`el-tabs--${tabPosition}`]: true,
+            'el-tabs--border-card': type === 'border-card'
+          },
+          customClass
+        ]}>
           { tabPosition !== 'bottom' ? [header, panels] : [panels, header] }
         </div>
       );

@@ -1,6 +1,7 @@
 <template>
   <div
     class="el-autocomplete"
+    :class="customClass"
     v-clickoutside="close"
     aria-haspopup="listbox"
     role="combobox"
@@ -83,6 +84,10 @@
     directives: { Clickoutside },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       valueKey: {
         type: String,
         default: 'value'

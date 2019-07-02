@@ -1,5 +1,5 @@
 <template>
-  <aside class="el-aside" :style="{ width }">
+  <aside class="el-aside" :class="customClass" :style="{ width }">
     <slot></slot>
   </aside>
 </template>
@@ -11,6 +11,10 @@
     componentName: 'ElAside',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       width: {
         type: String,
         default: '300px'

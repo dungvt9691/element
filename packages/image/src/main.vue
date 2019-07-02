@@ -1,5 +1,5 @@
 <template>
-  <div class="el-image">
+  <div class="el-image" :class="customClass">
     <slot v-if="loading" name="placeholder">
       <div class="el-image__placeholder"></div>
     </slot>
@@ -40,6 +40,10 @@
     inheritAttrs: false,
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       src: String,
       fit: String,
       lazy: Boolean,

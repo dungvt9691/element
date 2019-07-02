@@ -1,6 +1,7 @@
 <template>
   <div
     class="el-radio-group"
+    :class="customClass"
     role="radiogroup"
     @keydown="handleKeydown"
   >
@@ -30,6 +31,10 @@
     mixins: [Emitter],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {},
       size: String,
       fill: String,

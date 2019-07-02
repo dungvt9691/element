@@ -5,7 +5,8 @@
       border && checkboxSize ? 'el-checkbox--' + checkboxSize : '',
       { 'is-disabled': isDisabled },
       { 'is-bordered': border },
-      { 'is-checked': isChecked }
+      { 'is-checked': isChecked },
+      customClass
     ]"
     role="checkbox"
     :aria-checked="indeterminate ? 'mixed': isChecked"
@@ -163,6 +164,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {},
       label: {},
       indeterminate: Boolean,

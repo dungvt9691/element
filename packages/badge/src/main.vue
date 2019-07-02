@@ -11,7 +11,8 @@
           {
             'is-fixed': $slots.default,
             'is-dot': isDot
-          }
+          },
+          customClass
         ]">
       </sup>
     </transition>
@@ -23,6 +24,10 @@ export default {
   name: 'ElBadge',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     value: [String, Number],
     max: Number,
     isDot: Boolean,

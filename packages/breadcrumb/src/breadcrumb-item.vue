@@ -1,7 +1,7 @@
 <template>
   <span class="el-breadcrumb__item">
     <span
-      :class="['el-breadcrumb__inner', to ? 'is-link' : '']"
+      :class="['el-breadcrumb__inner', to ? 'is-link' : '', customClass]"
       ref="link"
       role="link">
       <slot></slot>
@@ -14,6 +14,10 @@
   export default {
     name: 'ElBreadcrumbItem',
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       to: {},
       replace: Boolean
     },

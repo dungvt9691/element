@@ -9,6 +9,11 @@ export default {
   name: 'ElPagination',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
+
     pageSize: {
       type: Number,
       default: 10
@@ -74,7 +79,7 @@ export default {
     let template = <div class={['el-pagination', {
       'is-background': this.background,
       'el-pagination--small': this.small
-    }] }></div>;
+    }, this.customClass] }></div>;
     const TEMPLATE_MAP = {
       prev: <prev></prev>,
       jumper: <jumper></jumper>,

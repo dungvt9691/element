@@ -2,7 +2,7 @@
   <transition name="el-alert-fade">
     <div
       class="el-alert"
-      :class="[typeClass, center ? 'is-center' : '', 'is-' + effect]"
+      :class="[customClass, typeClass, center ? 'is-center' : '', 'is-' + effect]"
       v-show="visible"
       role="alert"
     >
@@ -29,6 +29,10 @@
     name: 'ElAlert',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       title: {
         type: String,
         default: ''

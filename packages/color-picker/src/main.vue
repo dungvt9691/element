@@ -3,7 +3,8 @@
     :class="[
       'el-color-picker',
       colorDisabled ? 'is-disabled' : '',
-      colorSize ? `el-color-picker--${ colorSize }` : ''
+      colorSize ? `el-color-picker--${ colorSize }` : '',
+      customClass
     ]"
     v-clickoutside="hide">
     <div class="el-color-picker__mask" v-if="colorDisabled"></div>
@@ -42,6 +43,10 @@
     mixins: [Emitter],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: String,
       showAlpha: Boolean,
       colorFormat: String,

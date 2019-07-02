@@ -1,7 +1,8 @@
 <template>
   <form class="el-form" :class="[
     labelPosition ? 'el-form--label-' + labelPosition : '',
-    { 'el-form--inline': inline }
+    { 'el-form--inline': inline },
+    customClass
   ]">
     <slot></slot>
   </form>
@@ -21,6 +22,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       model: Object,
       rules: Object,
       labelPosition: String,

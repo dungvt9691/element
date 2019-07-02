@@ -1,7 +1,7 @@
 <template>
   <el-input
     class="el-date-editor"
-    :class="'el-date-editor--' + type"
+    :class="['el-date-editor--' + type, customClass]"
     :readonly="!editable || readonly || type === 'dates' || type === 'week'"
     :disabled="pickerDisabled"
     :size="pickerSize"
@@ -37,7 +37,8 @@
       'el-date-editor--' + type,
       pickerSize ? `el-range-editor--${ pickerSize }` : '',
       pickerDisabled ? 'is-disabled' : '',
-      pickerVisible ? 'is-active' : ''
+      pickerVisible ? 'is-active' : '',
+      customClass
     ]"
     @click="handleRangeClick"
     @mouseenter="handleMouseEnter"
@@ -343,6 +344,10 @@ export default {
   },
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     size: String,
     format: String,
     valueFormat: String,

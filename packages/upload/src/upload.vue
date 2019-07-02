@@ -8,6 +8,10 @@ export default {
     UploadDragger
   },
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     type: String,
     action: {
       type: String,
@@ -184,12 +188,13 @@ export default {
       listType,
       uploadFiles,
       disabled,
-      handleKeydown
+      handleKeydown,
+      customClass
     } = this;
     const data = {
-      class: {
+      class: [{
         'el-upload': true
-      },
+      }, customClass],
       on: {
         click: handleClick,
         keydown: handleKeydown

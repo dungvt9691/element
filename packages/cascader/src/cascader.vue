@@ -4,7 +4,8 @@
     :class="[
       'el-cascader',
       realSize && `el-cascader--${realSize}`,
-      { 'is-disabled': isDisabled }
+      { 'is-disabled': isDisabled },
+      customClass
     ]"
     v-clickoutside="() => toggleDropDownVisible(false)"
     @mouseenter="inputHover = true"
@@ -147,6 +148,10 @@ const MigratingProps = {
 
 const PopperMixin = {
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     placement: {
       type: String,
       default: 'bottom-start'

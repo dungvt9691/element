@@ -17,6 +17,10 @@ export default {
   },
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     nodes: {
       type: Array,
       required: true
@@ -109,7 +113,7 @@ export default {
   },
 
   render(h) {
-    const { isEmpty, menuId } = this;
+    const { isEmpty, menuId, customClass } = this;
     const events = { nativeOn: {} };
 
     // optimize hover to expand experience (#8010)
@@ -123,7 +127,7 @@ export default {
         tag="ul"
         role="menu"
         id={ menuId }
-        class="el-cascader-menu"
+        class={['el-cascader-menu', customClass]}
         wrap-class="el-cascader-menu__wrap"
         view-class={{
           'el-cascader-menu__list': true,

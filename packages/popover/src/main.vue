@@ -6,7 +6,7 @@
       @after-leave="handleAfterLeave">
       <div
         class="el-popover el-popper"
-        :class="[popperClass, content && 'el-popover--plain']"
+        :class="[popperClass, content && 'el-popover--plain', customClass]"
         ref="popper"
         v-show="!disabled && showPopper"
         :style="{ width: width + 'px' }"
@@ -33,6 +33,10 @@ export default {
   mixins: [Popper],
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     trigger: {
       type: String,
       default: 'click',

@@ -1,6 +1,7 @@
 <template>
   <div
     class="el-rate"
+    :class="customClass"
     @keydown="handleKey"
     role="slider"
     :aria-valuenow="currentValue"
@@ -57,6 +58,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {
         type: Number,
         default: 0

@@ -1,5 +1,5 @@
 <template>
-  <li class="el-timeline-item">
+  <li class="el-timeline-item" :class="customClass">
     <div class="el-timeline-item__tail"></div>
 
     <div v-if="!$slots.dot"
@@ -46,6 +46,11 @@
     inject: ['timeline'],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
+
       timestamp: String,
 
       hideTimestamp: {

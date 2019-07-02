@@ -1,5 +1,5 @@
 <template>
-  <div class="el-calendar">
+  <div class="el-calendar" :class="customClass">
     <div class="el-calendar__header">
       <div class="el-calendar__title">
         {{ i18nDate }}
@@ -74,6 +74,10 @@ export default {
   },
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     value: [Date, String, Number],
     range: {
       type: Array,

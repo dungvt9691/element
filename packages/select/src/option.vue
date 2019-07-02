@@ -4,11 +4,11 @@
     @click.stop="selectOptionClick"
     class="el-select-dropdown__item"
     v-show="visible"
-    :class="{
+    :class="[{
       'selected': itemSelected,
       'is-disabled': disabled || groupDisabled || limitReached,
       'hover': hover
-    }">
+    }, customClass]">
     <slot>
       <span>{{ currentLabel }}</span>
     </slot>
@@ -29,6 +29,10 @@
     inject: ['select'],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {
         required: true
       },

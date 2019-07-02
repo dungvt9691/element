@@ -2,6 +2,10 @@
   export default {
     name: 'ElTag',
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       text: String,
       closable: Boolean,
       type: String,
@@ -32,13 +36,14 @@
       }
     },
     render(h) {
-      const { type, tagSize, hit, effect } = this;
+      const { type, tagSize, hit, effect, customClass } = this;
       const classes = [
         'el-tag',
         type ? `el-tag--${type}` : '',
         tagSize ? `el-tag--${tagSize}` : '',
         effect ? `el-tag--${effect}` : '',
-        hit && 'is-hit'
+        hit && 'is-hit',
+        customClass
       ];
       const tagEl = (
         <span

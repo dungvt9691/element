@@ -4,7 +4,8 @@
       'el-link',
       type ? `el-link--${type}` : '',
       disabled && 'is-disabled',
-      underline && !disabled && 'is-underline'
+      underline && !disabled && 'is-underline',
+      customClass
     ]"
     :href="disabled ? null : href"
     v-bind="$attrs"
@@ -27,6 +28,10 @@ export default {
   name: 'ElLink',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     type: {
       type: String,
       default: 'default'

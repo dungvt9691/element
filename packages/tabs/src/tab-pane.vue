@@ -1,6 +1,7 @@
 <template>
   <div
     class="el-tab-pane"
+    :class="customClass"
     v-if="(!lazy || loaded) || active"
     v-show="active"
     role="tabpanel"
@@ -18,6 +19,10 @@
     componentName: 'ElTabPane',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       label: String,
       labelContent: Function,
       name: String,

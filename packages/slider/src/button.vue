@@ -5,7 +5,7 @@
     @mouseleave="handleMouseLeave"
     @mousedown="onButtonDown"
     @touchstart="onButtonDown"
-    :class="{ 'hover': hovering, 'dragging': dragging }"
+    :class="[{ 'hover': hovering, 'dragging': dragging }, customClass]"
     :style="wrapperStyle"
     ref="button"
     tabindex="0"
@@ -38,6 +38,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {
         type: Number,
         default: 0

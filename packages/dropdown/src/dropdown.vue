@@ -27,6 +27,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       trigger: {
         type: String,
         default: 'hover'
@@ -250,7 +254,7 @@
     },
 
     render(h) {
-      let { hide, splitButton, type, dropdownSize } = this;
+      let { hide, splitButton, type, dropdownSize, customClass } = this;
 
       const handleMainButtonClick = (event) => {
         this.$emit('click', event);
@@ -269,7 +273,7 @@
         </el-button-group>);
 
       return (
-        <div class="el-dropdown" v-clickoutside={hide}>
+        <div class={{'el-dropdown': true, customClass}} v-clickoutside={hide}>
           {triggerElm}
           {this.$slots.dropdown}
         </div>
