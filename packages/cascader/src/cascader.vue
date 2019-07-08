@@ -148,10 +148,6 @@ const MigratingProps = {
 
 const PopperMixin = {
   props: {
-    customClass: {
-      type: String,
-      default: ''
-    },
     placement: {
       type: String,
       default: 'bottom-start'
@@ -201,6 +197,10 @@ export default {
   },
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     value: {},
     options: Array,
     props: Object,
