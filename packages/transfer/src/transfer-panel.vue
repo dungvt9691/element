@@ -1,5 +1,5 @@
 <template>
-  <div class="el-transfer-panel">
+  <div class="el-transfer-panel" :class="customClass">
     <p class="el-transfer-panel__header">
       <el-checkbox
         v-model="allChecked"
@@ -94,6 +94,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       data: {
         type: Array,
         default() {

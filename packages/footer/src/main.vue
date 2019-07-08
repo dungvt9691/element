@@ -1,5 +1,5 @@
 <template>
-  <footer class="el-footer" :style="{ height }">
+  <footer class="el-footer" :class="customClass" :style="{ height }">
     <slot></slot>
   </footer>
 </template>
@@ -11,6 +11,10 @@
     componentName: 'ElFooter',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       height: {
         type: String,
         default: '60px'

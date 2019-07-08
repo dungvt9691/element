@@ -1,5 +1,5 @@
 <template>
-  <li class="el-menu-item-group">
+  <li class="el-menu-item-group" :class="customClass">
     <div class="el-menu-item-group__title" :style="{paddingLeft: levelPadding + 'px'}">
       <template v-if="!$slots.title">{{title}}</template>
       <slot v-else name="title"></slot>
@@ -17,6 +17,10 @@
 
     inject: ['rootMenu'],
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       title: {
         type: String
       }

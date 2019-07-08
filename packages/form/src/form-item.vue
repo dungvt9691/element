@@ -7,7 +7,8 @@
       'is-required': isRequired || required,
       'is-no-asterisk': elForm && elForm.hideRequiredAsterisk
     },
-    sizeClass ? 'el-form-item--' + sizeClass : ''
+    sizeClass ? 'el-form-item--' + sizeClass : '',
+    customClass
   ]">
     <label-wrap
       :is-auto-width="labelStyle && labelStyle.width === 'auto'"
@@ -60,6 +61,10 @@
     inject: ['elForm'],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       label: String,
       labelWidth: String,
       prop: String,

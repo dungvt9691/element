@@ -14,7 +14,8 @@
         'is-plain': plain,
         'is-round': round,
         'is-circle': circle
-      }
+      },
+      customClass
     ]"
   >
     <i class="el-icon-loading" v-if="loading"></i>
@@ -36,6 +37,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       type: {
         type: String,
         default: 'default'

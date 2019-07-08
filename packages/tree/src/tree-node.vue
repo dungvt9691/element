@@ -4,13 +4,13 @@
     @click.stop="handleClick"
     @contextmenu="($event) => this.handleContextMenu($event)"
     v-show="node.visible"
-    :class="{
+    :class="[{
       'is-expanded': expanded,
       'is-current': node.isCurrent,
       'is-hidden': !node.visible,
       'is-focusable': !node.disabled,
       'is-checked': !node.disabled && node.checked
-    }"
+    }, customClass]"
     role="treeitem"
     tabindex="-1"
     :aria-expanded="expanded"
@@ -85,6 +85,10 @@
     mixins: [emitter],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       node: {
         default() {
           return {};

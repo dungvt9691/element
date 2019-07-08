@@ -1,12 +1,12 @@
 <template>
   <div
     class="el-tree"
-    :class="{
+    :class="[{
       'el-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
       'is-drop-not-allow': !dragState.allowDrop,
       'is-drop-inner': dragState.dropType === 'inner'
-    }"
+    }, customClass]"
     role="tree"
   >
     <el-tree-node
@@ -49,6 +49,10 @@
 
     data() {
       return {
+        customClass: {
+          type: String,
+          default: ''
+        },
         store: null,
         root: null,
         currentNode: null,

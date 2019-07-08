@@ -2,6 +2,10 @@ export default {
   name: 'ElCol',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     span: {
       type: Number,
       default: 24
@@ -64,7 +68,7 @@ export default {
     });
 
     return h(this.tag, {
-      class: ['el-col', classList],
+      class: ['el-col', classList, this.customClass],
       style
     }, this.$slots.default);
   }

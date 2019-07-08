@@ -4,7 +4,8 @@
     :class="[
       'el-upload-list',
       'el-upload-list--' + listType,
-      { 'is-disabled': disabled }
+      { 'is-disabled': disabled },
+      customClass
     ]"
     name="el-list"
   >
@@ -80,6 +81,10 @@
     components: { ElProgress },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       files: {
         type: Array,
         default() {

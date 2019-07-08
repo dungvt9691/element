@@ -6,7 +6,8 @@
       inputNumberSize ? 'el-input-number--' + inputNumberSize : '',
       { 'is-disabled': inputNumberDisabled },
       { 'is-without-controls': !controls },
-      { 'is-controls-right': controlsAtRight }
+      { 'is-controls-right': controlsAtRight },
+      customClass
     ]">
     <span
       class="el-input-number__decrease"
@@ -68,6 +69,10 @@
       ElInput
     },
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       step: {
         type: Number,
         default: 1

@@ -15,6 +15,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {},
       disabled: Boolean,
       min: Number,
@@ -42,7 +46,7 @@
 </script>
 
 <template>
-  <div class="el-checkbox-group" role="group" aria-label="checkbox-group">
+  <div class="el-checkbox-group" :class="customClass" role="group" aria-label="checkbox-group">
     <slot></slot>
   </div>
 </template>

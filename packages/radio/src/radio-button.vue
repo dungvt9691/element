@@ -5,7 +5,8 @@
       size ? 'el-radio-button--' + size : '',
       { 'is-active': value === label },
       { 'is-disabled': isDisabled },
-      { 'is-focus': focus }
+      { 'is-focus': focus },
+      customClass
     ]"
     role="radio"
     :aria-checked="value === label"
@@ -52,6 +53,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       label: {},
       disabled: Boolean,
       name: String

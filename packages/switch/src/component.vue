@@ -1,7 +1,7 @@
 <template>
   <div
     class="el-switch"
-    :class="{ 'is-disabled': switchDisabled, 'is-checked': checked }"
+    :class="[{ 'is-disabled': switchDisabled, 'is-checked': checked }, customClass]"
     role="switch"
     :aria-checked="checked"
     :aria-disabled="switchDisabled"
@@ -49,6 +49,10 @@
       }
     },
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {
         type: [Boolean, String, Number],
         default: false

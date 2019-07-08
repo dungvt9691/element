@@ -1,7 +1,7 @@
 <template>
   <div
     class="el-select"
-    :class="[selectSize ? 'el-select--' + selectSize : '']"
+    :class="[selectSize ? 'el-select--' + selectSize : '', customClass]"
     @click.stop="toggleMenu"
     v-clickoutside="handleClose">
     <div
@@ -248,6 +248,10 @@
     directives: { Clickoutside },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       name: String,
       id: String,
       value: {

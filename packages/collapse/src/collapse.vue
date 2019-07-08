@@ -1,5 +1,5 @@
 <template>
-  <div class="el-collapse" role="tablist" aria-multiselectable="true">
+  <div class="el-collapse" :class="customClass" role="tablist" aria-multiselectable="true">
     <slot></slot>
   </div>
 </template>
@@ -10,6 +10,10 @@
     componentName: 'ElCollapse',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       accordion: Boolean,
       value: {
         type: [Array, String, Number],

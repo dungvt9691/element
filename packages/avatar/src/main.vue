@@ -3,6 +3,10 @@ export default {
   name: 'ElAvatar',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     size: {
       type: [Number, String],
       validator(val) {
@@ -39,7 +43,7 @@ export default {
   computed: {
     avatarClass() {
       const { size, icon, shape } = this;
-      let classList = ['el-avatar'];
+      let classList = ['el-avatar', this.customClass];
 
       if (size && typeof size === 'string') {
         classList.push(`el-avatar--${size}`);

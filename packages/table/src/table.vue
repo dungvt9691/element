@@ -1,6 +1,7 @@
 <template>
   <div class="el-table"
     :class="[{
+      'el-table--hover': hover,
       'el-table--fit': fit,
       'el-table--striped': stripe,
       'el-table--border': border || isGroup,
@@ -11,7 +12,7 @@
       'el-table--scrollable-y': layout.scrollY,
       'el-table--enable-row-hover': !store.states.isComplex,
       'el-table--enable-row-transition': (store.states.data || []).length !== 0 && (store.states.data || []).length < 100
-    }, tableSize ? `el-table--${ tableSize }` : '']"
+    }, tableSize ? `el-table--${ tableSize }` : '', customClass]"
     @mouseleave="handleMouseLeave($event)">
     <div class="hidden-columns" ref="hiddenColumns"><slot></slot></div>
     <div
@@ -240,6 +241,16 @@
     },
 
     props: {
+      hover: {
+        type: Boolean,
+        default: false
+      },
+
+      customClass: {
+        type: String,
+        default: ''
+      },
+
       data: {
         type: Array,
         default: function() {

@@ -3,10 +3,10 @@
     role="menuitem"
     tabindex="-1"
     :style="[paddingStyle, itemStyle, { backgroundColor }]"
-    :class="{
+    :class="[{
       'is-active': active,
-      'is-disabled': disabled
-    }"
+      'is-disabled': disabled,
+    }, customClass]"
     @click="handleClick"
     @mouseenter="onMouseEnter"
     @focus="onMouseEnter"
@@ -43,6 +43,10 @@
     components: { ElTooltip },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       index: {
         default: null,
         validator: val => typeof val === 'string' || val === null

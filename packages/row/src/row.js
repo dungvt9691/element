@@ -4,6 +4,10 @@ export default {
   componentName: 'ElRow',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     tag: {
       type: String,
       default: 'div'
@@ -39,7 +43,8 @@ export default {
         'el-row',
         this.justify !== 'start' ? `is-justify-${this.justify}` : '',
         this.align !== 'top' ? `is-align-${this.align}` : '',
-        { 'el-row--flex': this.type === 'flex' }
+        { 'el-row--flex': this.type === 'flex' },
+        this.customClass
       ],
       style: this.style
     }, this.$slots.default);

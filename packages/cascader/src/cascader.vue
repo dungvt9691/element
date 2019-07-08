@@ -4,7 +4,8 @@
     :class="[
       'el-cascader',
       realSize && `el-cascader--${realSize}`,
-      { 'is-disabled': isDisabled }
+      { 'is-disabled': isDisabled },
+      customClass
     ]"
     v-clickoutside="() => toggleDropDownVisible(false)"
     @mouseenter="inputHover = true"
@@ -196,6 +197,10 @@ export default {
   },
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     value: {},
     options: Array,
     props: Object,

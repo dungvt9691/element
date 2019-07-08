@@ -1,7 +1,7 @@
 <template>
   <div
     class="el-select-dropdown el-popper"
-    :class="[{ 'is-multiple': $parent.multiple }, popperClass]"
+    :class="[{ 'is-multiple': $parent.multiple }, popperClass, customClass]"
     :style="{ minWidth: minWidth }">
     <slot></slot>
   </div>
@@ -18,6 +18,11 @@
     mixins: [Popper],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
+
       placement: {
         default: 'bottom-start'
       },

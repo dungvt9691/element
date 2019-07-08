@@ -1,5 +1,5 @@
 <template>
-  <div class="el-breadcrumb" aria-label="Breadcrumb" role="navigation">
+  <div class="el-breadcrumb" :class="customClass" aria-label="Breadcrumb" role="navigation">
     <slot></slot>
   </div>
 </template>
@@ -8,6 +8,10 @@
     name: 'ElBreadcrumb',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       separator: {
         type: String,
         default: '/'

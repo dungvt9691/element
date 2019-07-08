@@ -1,6 +1,9 @@
 <template>
   <div class="el-collapse-item"
-    :class="{'is-active': isActive, 'is-disabled': disabled }">
+    :class="[
+      {'is-active': isActive, 'is-disabled': disabled },
+      customClass
+    ]">
     <div
       role="tab"
       :aria-expanded="isActive"
@@ -74,6 +77,10 @@
     inject: ['collapse'],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       title: String,
       name: {
         type: [String, Number],

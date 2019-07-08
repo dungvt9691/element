@@ -6,7 +6,8 @@
       { 'is-disabled': isDisabled },
       { 'is-focus': focus },
       { 'is-bordered': border },
-      { 'is-checked': model === label }
+      { 'is-checked': model === label },
+      customClass
     ]"
     role="radio"
     :aria-checked="model === label"
@@ -63,6 +64,10 @@
     componentName: 'ElRadio',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       value: {},
       label: {},
       disabled: Boolean,

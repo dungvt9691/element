@@ -30,6 +30,10 @@
     components: { ElCollapseTransition },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       index: {
         type: String,
         required: true
@@ -269,7 +273,8 @@
         disabled,
         popperClass,
         $slots,
-        isFirstLevel
+        isFirstLevel,
+        customClass
       } = this;
 
       const popupMenu = (
@@ -310,12 +315,15 @@
 
       return (
         <li
-          class={{
-            'el-submenu': true,
-            'is-active': active,
-            'is-opened': opened,
-            'is-disabled': disabled
-          }}
+          class={[
+            {
+              'el-submenu': true,
+              'is-active': active,
+              'is-opened': opened,
+              'is-disabled': disabled
+            },
+            customClass
+          ]}
           role="menuitem"
           aria-haspopup="true"
           aria-expanded={opened}

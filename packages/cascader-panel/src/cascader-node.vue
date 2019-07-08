@@ -14,6 +14,10 @@
     },
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       node: {
         required: true
       },
@@ -198,7 +202,8 @@
         isLeaf,
         isDisabled,
         config,
-        nodeId
+        nodeId,
+        customClass
       } = this;
       const { expandTrigger, checkStrictly, multiple } = config;
       const disabled = !checkStrictly && isDisabled;
@@ -227,14 +232,17 @@
           id={ nodeId }
           aria-expanded={ inActivePath }
           tabindex={ disabled ? null : -1 }
-          class={{
-            'el-cascader-node': true,
-            'is-selectable': checkStrictly,
-            'in-active-path': inActivePath,
-            'in-checked-path': inCheckedPath,
-            'is-active': isChecked,
-            'is-disabled': disabled
-          }}
+          class={[
+            {
+              'el-cascader-node': true,
+              'is-selectable': checkStrictly,
+              'in-active-path': inActivePath,
+              'in-checked-path': inCheckedPath,
+              'is-active': isChecked,
+              'is-disabled': disabled
+            },
+            customClass
+          ]}
           {...events}>
           { this.renderPrefix(h) }
           { this.renderContent(h) }

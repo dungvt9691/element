@@ -7,7 +7,8 @@
       {
         'el-progress--without-text': !showText,
         'el-progress--text-inside': textInside,
-      }
+      },
+      customClass
     ]"
     role="progressbar"
     :aria-valuenow="percentage"
@@ -54,6 +55,10 @@
   export default {
     name: 'ElProgress',
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       type: {
         type: String,
         default: 'line',

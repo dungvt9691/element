@@ -12,6 +12,10 @@ export default {
   components: { Bar },
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     native: Boolean,
     wrapStyle: {},
     wrapClass: {},
@@ -93,7 +97,7 @@ export default {
         </div>
       ]);
     }
-    return h('div', { class: 'el-scrollbar' }, nodes);
+    return h('div', { class: ['el-scrollbar', this.customClass] }, nodes);
   },
 
   methods: {

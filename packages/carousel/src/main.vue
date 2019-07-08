@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="carouselClasses"
+    :class="[carouselClasses, customClass]"
     @mouseenter.stop="handleMouseEnter"
     @mouseleave.stop="handleMouseLeave">
     <div
@@ -62,6 +62,10 @@ export default {
   name: 'ElCarousel',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     initialIndex: {
       type: Number,
       default: 0

@@ -1,9 +1,9 @@
 <template>
   <div
     class="el-upload-dragger"
-    :class="{
+    :class="[{
       'is-dragover': dragover
-    }"
+    }, customClass]"
     @drop.prevent="onDrop"
     @dragover.prevent="onDragover"
     @dragleave.prevent="dragover = false"
@@ -15,6 +15,10 @@
   export default {
     name: 'ElUploadDrag',
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       disabled: Boolean
     },
     inject: {

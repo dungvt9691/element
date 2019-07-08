@@ -1,5 +1,5 @@
 <template>
-  <div class="el-page-header">
+  <div class="el-page-header" :class="customClass">
     <div class="el-page-header__left" @click="$emit('back')">
       <i class="el-icon-back"></i>
       <div class="el-page-header__title">
@@ -18,6 +18,10 @@ export default {
   name: 'ElPageHeader',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     title: {
       type: String,
       default() {

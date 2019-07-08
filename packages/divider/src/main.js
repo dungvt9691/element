@@ -4,6 +4,11 @@ export default {
   name: 'ElDivider',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
+
     direction: {
       type: String,
       default: 'horizontal',
@@ -23,9 +28,9 @@ export default {
 
   render(h, context) {
     const $slots = context.slots();
-    const { direction, contentPosition } = context.props;
+    const { direction, contentPosition, customClass } = context.props;
     return (
-      <div class={['el-divider', `el-divider--${direction}`]}>
+      <div class={['el-divider', `el-divider--${direction}`, customClass]}>
         {
           $slots.default && direction !== 'vertical'
             ? <div class={['el-divider__text', `is-${contentPosition}`]}>{$slots.default}</div>

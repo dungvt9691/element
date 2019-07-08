@@ -1,10 +1,10 @@
 <template>
   <li
     class="el-dropdown-menu__item"
-    :class="{
+    :class="[{
       'is-disabled': disabled,
-      'el-dropdown-menu__item--divided': divided
-    }"
+      'el-dropdown-menu__item--divided': divided,
+    }, customClass]"
     @click="handleClick"
     :aria-disabled="disabled"
     :tabindex="disabled ? null : -1"
@@ -22,6 +22,10 @@
     mixins: [Emitter],
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
       command: {},
       disabled: Boolean,
       divided: Boolean,

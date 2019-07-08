@@ -6,7 +6,8 @@
       !isSimple && `is-${$parent.direction}`,
       isSimple && 'is-simple',
       isLast && !space && !isCenter && 'is-flex',
-      isCenter && !isVertical && !isSimple && 'is-center'
+      isCenter && !isVertical && !isSimple && 'is-center',
+      customClass
      ]">
     <!-- icon & line -->
     <div
@@ -58,6 +59,10 @@ export default {
   name: 'ElStep',
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     title: String,
     icon: String,
     description: String,

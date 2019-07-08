@@ -2,9 +2,10 @@
   <div
     class="el-steps"
     :class="[
-       !simple && 'el-steps--' + direction,
-       simple && 'el-steps--simple'
-     ]">
+      !simple && 'el-steps--' + direction,
+      simple && 'el-steps--simple',
+      customClass
+    ]">
       <slot></slot>
   </div>
 </template>
@@ -18,6 +19,10 @@ export default {
   mixins: [Migrating],
 
   props: {
+    customClass: {
+      type: String,
+      default: ''
+    },
     space: [Number, String],
     active: Number,
     direction: {

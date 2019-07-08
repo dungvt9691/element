@@ -1,5 +1,5 @@
 <template>
-  <ul @click="onPagerClick" class="el-pager">
+  <ul @click="onPagerClick" class="el-pager" :class="customClass">
     <li
       :class="{ active: currentPage === 1, disabled }"
       v-if="pageCount > 0"
@@ -35,6 +35,11 @@
     name: 'ElPager',
 
     props: {
+      customClass: {
+        type: String,
+        default: ''
+      },
+  
       currentPage: Number,
 
       pageCount: Number,
