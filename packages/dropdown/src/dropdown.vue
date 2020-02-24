@@ -273,7 +273,7 @@
         </el-button-group>);
 
       return (
-        <div class={{'el-dropdown': true, customClass}} v-clickoutside={hide}>
+        <div class={{'el-dropdown': true}, customClass} v-clickoutside={hide}>
           {triggerElm}
           {this.$slots.dropdown}
         </div>
