@@ -45,7 +45,7 @@
         v-for="(item, index) in suggestions"
         :key="index"
         :class="{'highlighted': highlightedIndex === index}"
-        @click="select(item)"
+        @click.stop="select(item)"
         :id="`${id}-item-${index}`"
         role="option"
         :aria-selected="highlightedIndex === index"

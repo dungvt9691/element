@@ -273,6 +273,7 @@
         </el-button-group>);
 
       return (
+        // eslint-disable-next-line no-sequences
         <div class={{'el-dropdown': true}, customClass} v-clickoutside={hide}>
           {triggerElm}
           {this.$slots.dropdown}
